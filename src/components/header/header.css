@@ -1,0 +1,14 @@
+header {
+    width: 100%;
+    margin: 0;
+}
+
+.header-container {
+    width: 1110px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.header-container h1 {
+    margin: 0;
+}
