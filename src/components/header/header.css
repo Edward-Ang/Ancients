@@ -1,14 +1,22 @@
 header {
     width: 100%;
-    margin: 0;
+    margin: 0;    
+    border-bottom: solid 2px var(--desc);
 }
 
 .header-container {
     width: 1110px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 12px 0;
+    color: var(--black);
+
 }
 
-.header-container h1 {
+.header-name-container{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.header-name {
     margin: 0;
 }
