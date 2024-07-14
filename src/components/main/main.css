@@ -30,7 +30,7 @@
         .content-container {
             display: flex;
             flex-direction: column;
-            padding: 0 20px;
+            padding: 4px 20px;
         }
 
         .article-title {
@@ -53,19 +53,17 @@
             margin: 12px 0;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            line-clamp: 3;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .article-date{
             margin-top: auto;
-            color: var(--blue);
+            color: var(--orange);
         }
-
     }
-
 }
 
 .main-right{
@@ -78,15 +76,43 @@
         flex-direction: column;
     }
 
-    .source-name{
-        text-decoration: none;
-        font-size: large;
+    .source-header{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .rocket-icon{
+        margin-right: 10px;
+        color: var(--orange);
+    }
+
+    .source-title{
+        font-size: larger;
         font-weight: bold;
         color: var(--title);
-        margin-bottom: 12px;
+    }
+
+    .source-card{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .source-name{
+        text-decoration: none;
+        font-size: medium;
+        font-weight: bold;
+        color: var(--indigo-blue);
+        margin-bottom: 5px;
     }
 
     .source-name:hover{
         text-decoration: underline;
+    }
+
+    .source-desc{
+        font-size: smaller;
+        color: var(--desc);
     }
 }
