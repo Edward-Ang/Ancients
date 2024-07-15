@@ -7,7 +7,8 @@ export default function Main({ data, source }) {
     const articlesToShow = data.articles.filter((article) =>
         article.description !== null && article.url !== 'https://removed.com'
     );
-    const sourcesToShow = source.sources;
+    const sourcesToShow = source.sources || source.articles;
+    console.log(sourcesToShow);
 
     return (
         <div className="main-wrapper">

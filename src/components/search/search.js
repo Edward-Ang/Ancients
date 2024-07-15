@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import './search.css';
 
-export default function Search() {
+export default function SearchBar() {
     const [query, setQuery] = useState('');
     const router = useRouter();
 
@@ -19,13 +19,16 @@ export default function Search() {
     return (
         <div className="search-wrapper">
             <div className="search-container">
-                <input
-                    type="text"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search for articles..."
-                />
-                <button onClick={handleSearch}>Search</button>
+                <form className="search-form" onSubmit={handleSearch}>
+                    <input
+                        className="search-input"
+                        type="text"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Search for articles..."
+                        required
+                    />
+                </form>
             </div>
         </div>
     );
