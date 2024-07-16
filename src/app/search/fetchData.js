@@ -1,4 +1,3 @@
-import axios from 'axios';
 
 const fetchData = async (query) => {
     const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY; // Consider using an environment variable
@@ -16,11 +15,12 @@ const fetchData = async (query) => {
 
     try {
         console.log('Fetching from URL:', url); // For debugging
-        const response = await axios.get(url);
+        const response = await fetch(url);
 
-        if (response.status === 200) {
-            console.log('Articles:', response.data.articles);
-            return response.data;
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Articles:', data.articles);
+            return data;
         } else {
             throw new Error(`API responded with status ${response.status}`);
         }

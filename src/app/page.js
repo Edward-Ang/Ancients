@@ -1,15 +1,15 @@
 //./src/app/page.js
-import axios from "axios";
 import Header from "@/components/header/header";
-import Search from "@/components/search/search";
-import Main from "@/components/main/main";
+import dynamic from "next/dynamic";
 import fetchSource from "./fetchSource";
+
+const Main = dynamic(() => import('@/components/main/main'));
 
 async function getData() {
   const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
   try {
     const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&q=&apiKey=${apiKey}`, {
-      /*       next: { revalidate: 60 }, // Optional: for caching and revalidation */
+      next: { revalidate: 86400 } // Optional: for caching and revalidation in 24 hrs
     });
 
     if (!response.ok) {

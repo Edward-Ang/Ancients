@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import dynamic from "next/dynamic";
 import Header from "@/components/header/header";
-import Main from "@/components/main/main";
 import fetchSource from "../fetchSource";
+
+const Main = dynamic(() => import('@/components/main/main'));
 
 async function getData(category) {
     const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
