@@ -1,36 +1,36 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Header from "@/components/header/header";
 import fetchSource from "../fetchSource";
 
-const Main = dynamic(() => import('@/components/main/main'));
+const Main = dynamic(() => import('@/components/main/main'), {
+  loading: () => <p>Loading...</p>
+});
 
 async function getData(category) {
     const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
     try {
         const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&q=&category=${category}&apiKey=${apiKey}`);
-
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
-
         const data = await response.json();
         return data;
-
     } catch (error) {
         console.error('Error fetching data:', error);
-        return { articles: [] };
+        throw error; // Re-throw the error to be caught in the component
     }
 }
 
-export default function Category() {
+function CategoryContent() {
     const searchParams = useSearchParams();
-    const category = searchParams.get('category' || '');
+    const category = searchParams.get('category') || '';
     const [newsData, setNewsData] = useState({ articles: [] });
     const [sourcesData, setSourcesData] = useState({ sources: [] });
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const getCategory = async () => {
@@ -41,19 +41,31 @@ export default function Category() {
                 ]);
                 setNewsData(newsArticles);
                 setSourcesData(newsSources);
+                setError(null); // Clear any previous errors
             } catch (error) {
-                console.log('Failed to fetch category');
+                console.error('Failed to fetch category:', error);
+                setError('Failed to load data. Please try again later.');
             }
         }
-
         getCategory();
     }, [category]);
 
-    console.log(sourcesData);
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
     return (
         <>
             <Header />
             <Main data={newsData} source={sourcesData} />
         </>
+    );
+}
+
+export default function Category() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <CategoryContent />
+        </Suspense>
     );
 }
