@@ -1,37 +1,21 @@
 'use client';
-
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
 import fetchData from './fetchData';
+import fetchSource from '../fetchSource';
 
 const Main = dynamic(() => import('@/components/main/main'), {
   loading: () => <div>Loading main component...</div>
 });
 
-const getSource = async () => {
-  const apiKey = process.env.NEWS_API_KEY  || process.env.NEXT_PUBLIC_NEWS_API_KEY;
-  try {
-    const response = await fetch(`https://newsapi.org/v2/top-headlines/sources?apiKey=${apiKey}&country=us&language=en&category=general`);
-    if (!response.ok) {
-      throw new Error(`API responded with status ${response.status}`);
-    }
-    const data = await response.json();
-    console.log('Sources:', data.sources);
-    return data;
-  } catch (error) {
-    console.error('Error fetching sources:', error);
-    throw error; // Re-throw to handle in the component
-  }
-};
-
 function SearchResultsContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('query') || '';
-  const [newsData, setNewsData] = useState({ articles: [] });
-  const [sourcesData, setSourcesData] = useState({ sources: [] });
-  const [isLoading, setIsLoading] = useState(false);
+  const [newsData, setNewsData] = useState(null);
+  const [sourcesData, setSourcesData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -42,7 +26,7 @@ function SearchResultsContent() {
         try {
           const [articlesData, sourcesData] = await Promise.all([
             fetchData(query),
-            getSource()
+            fetchSource('general')
           ]);
           setNewsData(articlesData);
           setSourcesData(sourcesData);
@@ -64,7 +48,11 @@ function SearchResultsContent() {
   return (
     <>
       <Header />
-      <Main data={newsData} source={sourcesData} />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        newsData && sourcesData && <Main data={newsData} source={sourcesData} />
+      )}
     </>
   );
 }

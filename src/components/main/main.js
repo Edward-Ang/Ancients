@@ -4,7 +4,7 @@ import { RocketLaunch } from "@mui/icons-material";
 import './main.css';
 
 export default function Main({ data, source }) {
-    const articlesToShow = data.articles.filter((article) =>
+    const articlesToShow = data.news.filter((article) =>
         article.description !== null && article.url !== 'https://removed.com'
     );
     const sourcesToShow = source.sources || source.articles;
@@ -13,7 +13,7 @@ export default function Main({ data, source }) {
         <div className="main-wrapper">
             <div className='main-left'>
                 {articlesToShow.map((article, index) => {
-                    const date = new Date(article.publishedAt);
+                    const date = new Date(article.published);
                     const formattedDate = date.toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
@@ -26,7 +26,7 @@ export default function Main({ data, source }) {
                                 <ImageWithFallback
                                     width={250}
                                     height={200}
-                                    src={article.urlToImage || '/cloud_error.jpg'}
+                                    src={article.image !== 'None' ?  article.image : '/cloud_error.jpg'}
                                     alt={article.title}
                                 />
                             </div>

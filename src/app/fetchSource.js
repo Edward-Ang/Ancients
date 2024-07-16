@@ -1,6 +1,5 @@
 
 const fetchSource = async (category) => {
-    const apiKey = process.env.NEWS_API_KEY || process.env.NEXT_PUBLIC_NEWS_API_KEY; // Consider using an environment variable
     const baseUrl = 'https://newsapi.org/v2/top-headlines/sources';
 
     // Construct URL parameters
@@ -8,7 +7,7 @@ const fetchSource = async (category) => {
         country: 'us',
         language: 'en',
         category: category,
-        apiKey: apiKey
+        apiKey: 'e51073a1a8724915ac0d1622c70b114a'
     });
 
     const url = `${baseUrl}?${params}`;
