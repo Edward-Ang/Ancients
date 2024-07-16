@@ -8,7 +8,6 @@ export default function Main({ data, source }) {
         article.description !== null && article.url !== 'https://removed.com'
     );
     const sourcesToShow = source.sources || source.articles;
-    console.log(sourcesToShow);
 
     return (
         <div className="main-wrapper">

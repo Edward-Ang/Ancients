@@ -11,7 +11,7 @@ const Main = dynamic(() => import('@/components/main/main'), {
 });
 
 async function getData(category) {
-    const apiKey = process.env.NEWS_API_KEY || process.env.NEXT_PUBLIC_NEWS_API_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
     try {
         const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&q=&category=${category}&apiKey=${apiKey}`);
         if (!response.ok) {
