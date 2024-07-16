@@ -1,16 +1,39 @@
 'use client';
 
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import SearchBar from "@/components/search/search";
 import { Search } from '@mui/icons-material';
 import './header.css';
 
-export default function Header() {
+const categories = [
+  'general',
+  'technology',
+  'business',
+  'entertainment',
+  'sports',
+  'health',
+  'science'
+];
+
+function HeaderContent() {
     const [showSearch, setShowSearch] = useState(false);
     const searchParams = useSearchParams();
     const category = searchParams.get('category');
+
+    const navLinks = useMemo(() => categories.map(cat => (
+      <li key={cat} className="nav-item">
+        <Link 
+          href={`/category?category=${cat}`}
+          className='nav-link'
+          style={{ color: category === cat ? 'var(--orange)' : undefined }}
+        >
+          {cat.charAt(0).toUpperCase() + cat.slice(1)}
+        </Link>
+      </li>
+    )), [category]);
 
     return (
         <>
@@ -21,66 +44,30 @@ export default function Header() {
                     </Link>
                     <nav className='nav-bar'>
                         <ul className="nav-list">
-                            <li className="nav-item">
-                                <Link href="/category?category=general"
-                                    className='nav-link'
-                                    style={{ color: category === 'general' && 'var(--orange)' }}>
-                                    General
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/category?category=technology"
-                                    className='nav-link'
-                                    style={{ color: category === 'technology' && 'var(--orange)' }}>
-                                    Technology
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/category?category=business"
-                                    className='nav-link'
-                                    style={{ color: category === 'business' && 'var(--orange)' }}>
-                                    Business
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/category?category=entertainment"
-                                    className='nav-link'
-                                    style={{ color: category === 'entertainment' && 'var(--orange)' }}>
-                                    Entertainment
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/category?category=sports"
-                                    className='nav-link'
-                                    style={{ color: category === 'sports' && 'var(--orange)' }}>
-                                    Sports
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/category?category=health"
-                                    className='nav-link'
-                                    style={{ color: category === 'health' && 'var(--orange)' }}>
-                                    Health
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link href="/category?category=science"
-                                    className='nav-link'
-                                    style={{ color: category === 'science' && 'var(--orange)' }}>
-                                    Science
-                                </Link>
-                            </li>
+                            {navLinks}
                         </ul>
                     </nav>
-                    <button className='search-btn' onClick={(e) => { setShowSearch(!showSearch) }}>
-                        <Search className='search-icon' style={{ color: showSearch && 'var(--orange)' }} />
+                    <button 
+                      className='search-btn' 
+                      onClick={() => setShowSearch(!showSearch)}
+                      aria-label="Toggle search"
+                    >
+                        <Search 
+                          className='search-icon' 
+                          style={{ color: showSearch ? 'var(--orange)' : undefined }} 
+                        />
                     </button>
                 </div>
-            </header >
-            {showSearch && (
-                <SearchBar />
-            )
-            }
+            </header>
+            {showSearch && <SearchBar />}
         </>
+    );
+}
+
+export default function Header() {
+    return (
+        <Suspense fallback={<div>Loading header...</div>}>
+            <HeaderContent />
+        </Suspense>
     );
 }
