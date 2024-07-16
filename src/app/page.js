@@ -6,7 +6,7 @@ import fetchSource from "./fetchSource";
 const Main = dynamic(() => import('@/components/main/main'));
 
 async function getData() {
-  const apiKey = process.env.NEXT_PUBLIC_NEWS_API_KEY;
+  const apiKey = process.env.NEWS_API_KEY || process.env.NEXT_PUBLIC_NEWS_API_KEY;
   try {
     const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&q=&apiKey=${apiKey}`, {
       next: { revalidate: 86400 } // Optional: for caching and revalidation in 24 hrs
