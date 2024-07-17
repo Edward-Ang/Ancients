@@ -3,11 +3,23 @@ import { ImageWithFallback } from "@/app/imgWithFallback";
 import { RocketLaunch } from "@mui/icons-material";
 import './main.css';
 
-export default function Main({ data, source }) {
+const categories = [
+    "world",
+    "regional",
+    "politics",
+    "finance",
+    "academia",
+    "programming",
+    "lifestyle",
+    "food",
+    "opinion",
+    "game"
+];
+
+export default function Main({ data }) {
     const articlesToShow = data.news.filter((article) =>
         article.description !== null && article.url !== 'https://removed.com'
     );
-    const sourcesToShow = source.sources || source.articles;
 
     return (
         <div className="main-wrapper">
@@ -26,7 +38,7 @@ export default function Main({ data, source }) {
                                 <ImageWithFallback
                                     width={250}
                                     height={200}
-                                    src={article.image !== 'None' ?  article.image : '/cloud_error.jpg'}
+                                    src={article.image !== 'None' ? article.image : '/cloud_error.jpg'}
                                     alt={article.title}
                                 />
                             </div>
@@ -47,14 +59,13 @@ export default function Main({ data, source }) {
                 <div className="source-container">
                     <div className="source-header">
                         <RocketLaunch className="rocket-icon" />
-                        <span className="source-title">Popular Sites</span>
+                        <span className="source-title">Other Topics</span>
                     </div>
-                    {sourcesToShow.map((source) => (
-                        <div key={source.id} className="source-card">
-                            <Link href={source.url} className="source-name">
-                                {source.name}
+                    {categories.map((topic) => (
+                        <div key={topic.id} className="source-card">
+                            <Link href={`/category?category=${topic}`} className="source-name">
+                                {topic.charAt(0).toUpperCase() + topic.slice(1)}
                             </Link>
-                            <span className="source-desc">{source.description}</span>
                         </div>
                     ))}
                 </div>

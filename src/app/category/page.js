@@ -3,7 +3,6 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Header from "@/components/header/header";
-import fetchSource from "../fetchSource";
 
 const Main = dynamic(() => import('@/components/main/main'), {
   loading: () => <p>Loading...</p>
@@ -27,7 +26,6 @@ function CategoryContent() {
     const searchParams = useSearchParams();
     const category = searchParams.get('category') || '';
     const [newsData, setNewsData] = useState(null);
-    const [sourcesData, setSourcesData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -35,12 +33,10 @@ function CategoryContent() {
         const getCategory = async () => {
             setIsLoading(true);
             try {
-                const [newsArticles, newsSources] = await Promise.all([
+                const [newsArticles] = await Promise.all([
                     getData(category),
-                    fetchSource(category),
                 ]);
                 setNewsData(newsArticles);
-                setSourcesData(newsSources);
                 setError(null);
             } catch (error) {
                 console.error('Failed to fetch category:', error);
@@ -62,7 +58,7 @@ function CategoryContent() {
             {isLoading ? (
                 <p>Loading...</p>
             ) : (
-                newsData && sourcesData && <Main data={newsData} source={sourcesData} />
+                newsData && <Main data={newsData} />
             )}
         </>
     );

@@ -4,7 +4,6 @@ import { useEffect, useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
 import fetchData from './fetchData';
-import fetchSource from '../fetchSource';
 
 const Main = dynamic(() => import('@/components/main/main'), {
   loading: () => <div>Loading main component...</div>
@@ -14,7 +13,6 @@ function SearchResultsContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('query') || '';
   const [newsData, setNewsData] = useState(null);
-  const [sourcesData, setSourcesData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,12 +22,10 @@ function SearchResultsContent() {
         setIsLoading(true);
         setError(null);
         try {
-          const [articlesData, sourcesData] = await Promise.all([
+          const [articlesData] = await Promise.all([
             fetchData(query),
-            fetchSource('general')
           ]);
           setNewsData(articlesData);
-          setSourcesData(sourcesData);
         } catch (err) {
           setError('Failed to fetch data. Please try again later.');
           console.error('Search error:', err);
@@ -51,7 +47,7 @@ function SearchResultsContent() {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        newsData && sourcesData && <Main data={newsData} source={sourcesData} />
+        newsData && <Main data={newsData} />
       )}
     </>
   );
