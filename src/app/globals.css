@@ -1,4 +1,4 @@
-:root{
+:root {
     --title: #333333;
     --desc: #666666;
     --canvas: #f2f2f2;
@@ -7,15 +7,19 @@
     --blue: #1763f8;
     --black: #040404;
     --indigo-blue: #1E3A8A;
-    --gold: #FFD700;
     --sky-blue: #60A5FA;
     --navy-blue: #1E40AF;
-    --light-gold: #FFECB3;
-    --dark-goldenrod: #B8860B;
     --light-gray: #D1D5DB;
+    --lime: linear-gradient(45deg, #2dfff5, #fff878);
+    --azure: linear-gradient(45deg, #0172af, #74febd);
+    --mojito: linear-gradient(45deg, #103ce7, #64e9ff);
+    --neon: linear-gradient(45deg, #6157ff, #ee49fd);
+    --malibu: linear-gradient(45deg, #0700de, #ddffc9);
+    --peach: linear-gradient(45deg, #ff8473, #fff9d2);
+    --butterfly: linear-gradient(45deg, #ff4066, #fff16a);
 }
 
-body{
+body {
     margin: 0;
     background-color: var(--canvas);
 }

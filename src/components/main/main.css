@@ -46,16 +46,17 @@
             text-overflow: ellipsis;
         }
 
-        .article-desc, .article-date{
+        .article-desc,
+        .article-date {
             font-size: smaller;
             color: var(--desc);
         }
 
-        .article-desc{
+        .article-desc {
             line-height: 20px;
         }
 
-        .article-desc p{
+        .article-desc p {
             margin: 12px 0;
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -65,60 +66,62 @@
             text-overflow: ellipsis;
         }
 
-        .article-date{
+        .article-date {
             margin-top: auto;
             color: var(--orange);
         }
     }
 }
 
-.main-right{
+.main-right {
     height: 500px;
     width: 310px;
     padding: 20px 0;
 
-    .source-container{
+    .source-container {
         display: flex;
         flex-direction: column;
     }
 
-    .source-header{
+    .source-header {
         display: flex;
         align-items: center;
         margin-bottom: 12px;
     }
 
-    .rocket-icon{
+    .rocket-icon {
         margin-right: 10px;
         color: var(--orange);
     }
 
-    .source-title{
+    .source-title {
         font-size: larger;
         font-weight: bold;
         color: var(--title);
     }
 
-    .source-card{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
+    .topic-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
-    .source-name{
+    .source-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75px;
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
         text-decoration: none;
         font-size: medium;
         font-weight: bold;
-        color: var(--indigo-blue);
-        margin-bottom: 5px;
+        color: var(--white);
     }
 
-    .source-name:hover{
+    .source-name:hover {
         text-decoration: underline;
-    }
-
-    .source-desc{
-        font-size: smaller;
-        color: var(--desc);
     }
 }
