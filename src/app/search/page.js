@@ -5,9 +5,10 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
 import BackToTop from '@/components/BackToTop/backToTop';
 import fetchData from './fetchData';
+import Loading from './loading';
 
 const Main = dynamic(() => import('@/components/main/main'), {
-  loading: () => <div>Loading main component...</div>
+  loading: () => <Loading />
 });
 
 function SearchResultsContent() {
@@ -46,7 +47,7 @@ function SearchResultsContent() {
     <>
       <Header />
       {isLoading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         newsData && <Main data={newsData} />
       )}
@@ -57,7 +58,7 @@ function SearchResultsContent() {
 
 export default function SearchResults() {
   return (
-    <Suspense fallback={<div>Loading search results...</div>}>
+    <Suspense fallback={<Loading />}>
       <SearchResultsContent />
     </Suspense>
   );

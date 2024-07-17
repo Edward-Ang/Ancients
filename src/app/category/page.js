@@ -4,9 +4,10 @@ import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Header from "@/components/header/header";
 import BackToTop from "@/components/BackToTop/backToTop";
+import Loading from "./loading";
 
 const Main = dynamic(() => import('@/components/main/main'), {
-  loading: () => <p>Loading...</p>
+  loading: () => <Loading />
 });
 
 async function getData(category) {
@@ -57,7 +58,7 @@ function CategoryContent() {
         <>
             <Header />
             {isLoading ? (
-                <p>Loading...</p>
+                <Loading />
             ) : (
                 newsData && <Main data={newsData} />
             )}
@@ -68,7 +69,7 @@ function CategoryContent() {
 
 export default function Category() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
             <CategoryContent />
         </Suspense>
     );

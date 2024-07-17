@@ -54,10 +54,11 @@
 
         .article-desc {
             line-height: 20px;
+            padding: 12px 0;
         }
 
         .article-desc p {
-            margin: 12px 0;
+            margin: 0;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
