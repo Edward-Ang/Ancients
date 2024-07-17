@@ -1,5 +1,6 @@
 //./src/app/page.js
 import Header from "@/components/header/header";
+import BackToTop from "@/components/BackToTop/backToTop";
 import dynamic from "next/dynamic";
 
 const Main = dynamic(() => import('@/components/main/main'));
@@ -30,6 +31,7 @@ export default async function Home() {
     <>
       <Header />
       <Main data={newsData} />
+      <BackToTop />
     </>
   );
 }

@@ -14,35 +14,35 @@ const categories = [
     },
     {
         name: "politics",
-        color: "malibu",
+        color: "lime",
     },
     {
         name: "finance",
-        color: "malibu",
+        color: "lime",
     },
     {
         name: "academia",
-        color: "lime",
+        color: "citrus",
     },
     {
         name: "programming",
-        color: "lime",
+        color: "citrus",
     },
     {
         name: "lifestyle",
-        color: "azure",
+        color: "burn-red",
     },
     {
         name: "food",
-        color: "azure",
+        color: "burn-red",
     },
     {
         name: "opinion",
-        color: "peach",
+        color: "purpink",
     },
     {
         name: "game",
-        color: "peach",
+        color: "purpink",
     }
 ];
 
@@ -86,18 +86,18 @@ export default function Main({ data }) {
                 })}
             </div>
             <div className='main-right'>
-                <div className="source-container">
-                    <div className="source-header">
+                <div className="topic-wrapper">
+                    <div className="topic-header">
                         <RocketLaunch className="rocket-icon" />
-                        <span className="source-title">Other Topics</span>
+                        <span className="topic-title">Other Topics</span>
                     </div>
                     <div className="topic-container">
                         {categories.map((topic, index) => (
                             <Link key={index}
                                 href={`/category?category=${topic.name}`}
-                                className="source-name"
+                                className="topic-card"
                                 style={{ background: `var(--${topic.color})` }}>
-                                <span>{topic.name.charAt(0).toUpperCase() + topic.name.slice(1)}</span>
+                                <span className="topic-name">{topic.name.charAt(0).toUpperCase() + topic.name.slice(1)}</span>
                             </Link>
                         ))}
                     </div>

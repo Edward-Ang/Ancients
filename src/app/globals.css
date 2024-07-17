@@ -10,13 +10,17 @@
     --sky-blue: #60A5FA;
     --navy-blue: #1E40AF;
     --light-gray: #D1D5DB;
-    --lime: linear-gradient(45deg, #2dfff5, #fff878);
-    --azure: linear-gradient(45deg, #0172af, #74febd);
-    --mojito: linear-gradient(45deg, #103ce7, #64e9ff);
-    --neon: linear-gradient(45deg, #6157ff, #ee49fd);
-    --malibu: linear-gradient(45deg, #0700de, #ddffc9);
-    --peach: linear-gradient(45deg, #ff8473, #fff9d2);
-    --butterfly: linear-gradient(45deg, #ff4066, #fff16a);
+    --deg: 0deg;
+    --lime: linear-gradient(var(--deg), #1D976C, #93F9B9);
+    --azure: linear-gradient(var(--deg), #0172af, #74febd);
+    --mojito: linear-gradient(var(--deg), #103ce7, #64e9ff);
+    --neon: linear-gradient(var(--deg),  #ee49fd, #6157ff);
+    --purpink: linear-gradient(var(--deg),  #4A00E0, #8E2DE2);
+    --malibu: linear-gradient(var(--deg), #0700de, #ddffc9);
+    --peach: linear-gradient(var(--deg), #ff8473, #fff9d2);
+    --citrus: linear-gradient(var(--deg), #F37335, #FDC830);
+    --burn-red: linear-gradient(var(--deg), #FF4B2B, #FF416C);
+    --butterfly: linear-gradient(var(--deg), #ff4066, #fff16a);
 }
 
 body {

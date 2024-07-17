@@ -3,6 +3,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
+import BackToTop from '@/components/BackToTop/backToTop';
 import fetchData from './fetchData';
 
 const Main = dynamic(() => import('@/components/main/main'), {
@@ -49,6 +50,7 @@ function SearchResultsContent() {
       ) : (
         newsData && <Main data={newsData} />
       )}
+      <BackToTop />
     </>
   );
 }

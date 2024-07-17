@@ -69,6 +69,7 @@
         .article-date {
             margin-top: auto;
             color: var(--orange);
+            font-weight: bold;
         }
     }
 }
@@ -78,12 +79,12 @@
     width: 310px;
     padding: 20px 0;
 
-    .source-container {
+    .topic-wrapper {
         display: flex;
         flex-direction: column;
     }
 
-    .source-header {
+    .topic-header {
         display: flex;
         align-items: center;
         margin-bottom: 12px;
@@ -94,7 +95,7 @@
         color: var(--orange);
     }
 
-    .source-title {
+    .topic-title {
         font-size: larger;
         font-weight: bold;
         color: var(--title);
@@ -106,7 +107,7 @@
         gap: 12px;
     }
 
-    .source-name {
+    .topic-card{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -121,7 +122,11 @@
         color: var(--white);
     }
 
-    .source-name:hover {
+    .topic-card:hover {
         text-decoration: underline;
+    }
+
+    .topic-name{
+        color: var(--white);
     }
 }

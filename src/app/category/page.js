@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Header from "@/components/header/header";
+import BackToTop from "@/components/BackToTop/backToTop";
 
 const Main = dynamic(() => import('@/components/main/main'), {
   loading: () => <p>Loading...</p>
@@ -60,6 +61,7 @@ function CategoryContent() {
             ) : (
                 newsData && <Main data={newsData} />
             )}
+            <BackToTop />
         </>
     );
 }
