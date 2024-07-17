@@ -7,8 +7,8 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Ancients",
-  description: "Discover the latest news and updates from around the world on Ancients. Stay informed with breaking headlines, in-depth articles, and diverse perspectives. Explore trending topics in politics, technology, entertainment, and more, curated for your interests. Visit now for real-time news coverage and analysis.",
+  title: "Ancients News",
+  description: "Discover the latest news and updates from around the world on Ancients News. Stay informed with breaking headlines, in-depth articles, and diverse perspectives. Explore trending topics in politics, technology, entertainment, and more, curated for your interests. Visit now for real-time news coverage and analysis.",
 };
 
 export default function RootLayout({ children }) {

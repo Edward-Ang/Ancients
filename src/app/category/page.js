@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
 import BackToTop from "@/components/BackToTop/backToTop";
 import Loading from "./loading";
 
@@ -62,6 +63,7 @@ function CategoryContent() {
             ) : (
                 newsData && <Main data={newsData} />
             )}
+            <Footer />
             <BackToTop />
         </>
     );

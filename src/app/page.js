@@ -1,5 +1,6 @@
 //./src/app/page.js
 import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
 import BackToTop from "@/components/BackToTop/backToTop";
 import dynamic from "next/dynamic";
 
@@ -31,6 +32,7 @@ export default async function Home() {
     <>
       <Header />
       <Main data={newsData} />
+      <Footer />
       <BackToTop />
     </>
   );
