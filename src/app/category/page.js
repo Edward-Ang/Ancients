@@ -12,8 +12,9 @@ const Main = dynamic(() => import('@/components/main/main'), {
 });
 
 async function getData(category) {
+    const apiKey = process.env.NEWS_API_KEY || process.env.NEXT_PUBLIC_NEWS_API_KEY;
     try {
-        const response = await fetch(`https://api.currentsapi.services/v1/search?category=${category}&apiKey=qZtLGL_is3hw5GJh6zMASTKzD-34ou1Uv5n0I-3pcgAD11Mb`);
+        const response = await fetch(`https://api.currentsapi.services/v1/search?category=${category}&apiKey=${apiKey}`);
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
