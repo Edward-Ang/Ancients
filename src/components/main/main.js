@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ImageWithFallback } from "@/app/imgWithFallback";
 import { RocketLaunch } from "@mui/icons-material";
+import ImageError from '@/assets/images/cloud_error.jpg';
 import './main.css';
 
 const categories = [
@@ -63,12 +64,12 @@ export default function Main({ data }) {
                     });
 
                     return (
-                        <Link key={article.url || index} className="news-card" href={article.url}>
+                        <Link key={article.url || index} className="news-card" href={article.url} target="_blank" rel="noopener noreferrer">
                             <div className="img-container">
                                 <ImageWithFallback
                                     width={250}
                                     height={200}
-                                    src={article.image !== 'None' ? article.image : '/cloud_error.jpg'}
+                                    src={article.image !== 'None' ? article.image : ImageError}
                                     alt={article.title}
                                 />
                             </div>

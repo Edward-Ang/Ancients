@@ -16,7 +16,7 @@ export default function Footer() {
                             </Link>
                         </li>
                         <li className='footer-links-item'>
-                            <Link className='footer-links' href="/contact">
+                            <Link className='footer-links' href="mailto:weihenang02@gmail.com">
                                 <span className='footer-links-text'>Contact</span>
                             </Link>
                         </li>
