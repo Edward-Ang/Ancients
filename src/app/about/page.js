@@ -2,7 +2,7 @@ import Header from '@/components/header/header';
 import styles from './page.module.css';
 import Footer from '@/components/footer/footer';
 import Image from 'next/image';
-import AboutIllustration from '@/assets/images/aboutillustration.png';
+import AboutIllustration from '@/assets/images/aboutIllustration.png';
 
 export default function About() {
     return (
