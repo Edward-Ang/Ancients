@@ -9,7 +9,7 @@ const roboto = Roboto({
 
 export const metadata = {
   title: "Ancients News | Latest News and Updates",
-  description: "Discover the latest news and updates from around the world on Ancients News. Stay informed with breaking headlines, in-depth articles, and diverse perspectives. Explore trending topics in politics, technology, entertainment, and more, curated for your interests. Visit now for real-time news coverage and analysis.",
+  description: "Discover the latest news and updates from around the world on Ancients News. Stay ahead with trending topics in politics, technology, entertainment, and more. Experience real-time news coverage and insightful analysis exclusively on Ancients News.",
 };
 
 export default function RootLayout({ children }) {
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={metadata.description} />
-        <meta name="keywords" content="news, latest news, breaking news, politics, technology, entertainment, world news" />
+        <meta name="keywords" content="news, latest news, breaking news, ancients, ancients news, politics, technology, entertainment, world news" />
       </head>
       <body className={roboto.className}>{children}</body>
     </html>

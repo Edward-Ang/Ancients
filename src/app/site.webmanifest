@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Ancients News",
+    "short_name": "Ancients",
+    "description": "Discover the latest news and updates from around the world on Ancients News. Stay ahead with trending topics in politics, technology, entertainment, and more. Experience real-time news coverage and insightful analysis exclusively on Ancients News.",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

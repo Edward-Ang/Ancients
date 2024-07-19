@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ImageWithFallback } from "@/app/imgWithFallback";
 import { RocketLaunch } from "@mui/icons-material";
-import ImageError from '@/assets/images/cloud_error.jpg';
+import ImageError from '@/assets/images/404.jpg';
 import './main.css';
 
 const categories = [

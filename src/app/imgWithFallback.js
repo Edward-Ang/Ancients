@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import ImageError from '@/assets/images/cloud_error.jpg';
+import ImageError from '@/assets/images/404.jpg';
 
 export const ImageWithFallback = ({ src, alt, ...props }) => {
     const [imgSrc, setImgSrc] = useState(src);
