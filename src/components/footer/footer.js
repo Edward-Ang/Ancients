@@ -21,7 +21,7 @@ export default function Footer() {
                             </Link>
                         </li>
                         <li className='footer-links-item'>
-                            <Link className='footer-links' href="/privacy">
+                            <Link className='footer-links' href="https://www.iubenda.com/privacy-policy/43441192">
                                 <span className='footer-links-text'>Privacy Policy</span>
                             </Link>
                         </li>
