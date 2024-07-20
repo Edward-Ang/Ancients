@@ -2,50 +2,9 @@ import Link from "next/link";
 import { ImageWithFallback } from "@/app/imgWithFallback";
 import { RocketLaunch } from "@mui/icons-material";
 import ImageError from '@/assets/images/404.jpg';
+import category from '@/assets/data/categories.json';
 import './main.css';
-
-const categories = [
-    {
-        name: "world",
-        color: "mojito",
-    },
-    {
-        name: "regional",
-        color: "mojito", 
-    },
-    {
-        name: "politics",
-        color: "lime",
-    },
-    {
-        name: "finance",
-        color: "lime",
-    },
-    {
-        name: "academia",
-        color: "citrus",
-    },
-    {
-        name: "programming",
-        color: "citrus",
-    },
-    {
-        name: "lifestyle",
-        color: "burn-red",
-    },
-    {
-        name: "food",
-        color: "burn-red",
-    },
-    {
-        name: "opinion",
-        color: "purpink",
-    },
-    {
-        name: "game",
-        color: "purpink",
-    }
-];
+import './mainMedia.css';
 
 export default function Main({ data }) {
     const articlesToShow = data.news.filter((article) =>
@@ -93,7 +52,7 @@ export default function Main({ data }) {
                         <span className="topic-title">Other Topics</span>
                     </div>
                     <div className="topic-container">
-                        {categories.map((topic, index) => (
+                        {category.slice(7).map((topic, index) => (
                             <Link key={index}
                                 href={`/category?category=${topic.name}`}
                                 className="topic-card"

@@ -1,0 +1,21 @@
+@media (max-width: 480px) {
+    .footer-container {
+        width: 95%;
+        flex-direction: column;
+        border-top: 2px solid var(--desc);
+    }
+
+    .footer-left {
+        .copyright-text {
+            font-size: small;
+        }
+    }
+
+    .footer-right {
+        padding-bottom: 20px;
+
+        .footer-links-item {
+            padding: 0 10px;
+        }
+    }
+}

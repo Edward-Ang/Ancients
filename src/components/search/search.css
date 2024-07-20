@@ -38,3 +38,9 @@
 .search-input:focus {
     border: 2px solid var(--orange);
 }
+
+@media (max-width: 480px) {
+    .search-container {
+        width: 90%;
+    }
+}

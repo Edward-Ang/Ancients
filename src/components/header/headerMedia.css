@@ -1,0 +1,12 @@
+@media (max-width: 480px) {
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .header-container {
+            width: 90%;
+            margin: 0;
+        }
+    }
+}
