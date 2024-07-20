@@ -3,8 +3,11 @@ import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import BackToTop from "@/components/BackToTop/backToTop";
 import dynamic from "next/dynamic";
+import Loading from "./loading";
 
-const Main = dynamic(() => import('@/components/main/main'));
+const Main = dynamic(() => import('@/components/main/main'), {
+  loading: () => <Loading />
+});
 
 async function getData() {
   const apiKey = process.env.NEWS_API_KEY;

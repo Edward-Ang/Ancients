@@ -26,7 +26,7 @@ function HeaderContent() {
   const navLinks = useMemo(() => categories.slice(0, 7).map(cat => (
     <li key={cat} className="nav-item">
       <Link
-        href={`/category?category=${cat.name}`}
+        href={`/${cat.name}`}
         className='nav-link'
         style={{ color: category === cat.name ? 'var(--orange)' : undefined }}
       >
@@ -90,7 +90,7 @@ function HeaderContent() {
 
 export default function Header() {
   return (
-    <Suspense fallback={<div>Loading header...</div>}>
+    <Suspense fallback={<div></div>}>
       <HeaderContent />
     </Suspense>
   );
