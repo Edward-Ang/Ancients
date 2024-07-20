@@ -37,11 +37,11 @@
     }
 }
 
-.right{
+.right {
     width: 50%;
     order: 1;
 
-    .imgContainer{
+    .imgContainer {
         width: 100%;
         display: flex;
         justify-content: flex-start;
@@ -49,7 +49,30 @@
         padding-top: 20px;
     }
 
-    .image{
+    .image {
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        height: auto;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .left{
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .content{
+        text-align: justify;
     }
 }
