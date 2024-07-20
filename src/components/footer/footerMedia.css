@@ -1,4 +1,4 @@
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .footer-container {
         width: 95%;
         flex-direction: column;
@@ -17,5 +17,28 @@
         .footer-links-item {
             padding: 0 10px;
         }
+    }
+}
+
+@media (min-width: 601px) and (max-width: 899px) {
+    .footer-container {
+        width: 95%;
+        flex-direction: column;
+        border-top: 2px solid var(--desc);
+    }
+
+    .footer-right {
+        padding-bottom: 20px;
+
+        .footer-links-item {
+            padding: 0 10px;
+        }
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1152px) {
+    .footer-container {
+        width: 860px;
+        border-top: 2px solid var(--desc);
     }
 }

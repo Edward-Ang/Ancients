@@ -16,7 +16,8 @@ function HeaderContent() {
   const [isClient, setIsClient] = useState(false);
   const searchParams = useSearchParams();
   const category = searchParams.get('category');
-  const mobileMedia = useMediaQuery({ maxWidth: 480 });
+  const mobileMedia = useMediaQuery({ maxWidth: 600 });
+  const mediumMedia = useMediaQuery({ minWidth: 601, maxWidth: 899 });
 
   useEffect(() => {
     setIsClient(true);
@@ -41,7 +42,7 @@ function HeaderContent() {
           <Link href="/" className="header-name-container">
             <h1 className="header-name">Ancients</h1>
           </Link>
-          {isClient && !mobileMedia && (
+          {isClient && !mobileMedia && !mediumMedia && (
             <nav className='nav-bar'>
               <ul className="nav-list">
                 {navLinks}
@@ -59,7 +60,7 @@ function HeaderContent() {
                 style={{ color: showSearch ? 'var(--orange)' : undefined }}
               />
             </button>
-            {isClient && mobileMedia && (
+            {isClient && (mobileMedia || mediumMedia) && (
               <button className='more-btn' onClick={() => setShowDropdown(!showDropDown)}>
                 <DensityMedium className='more-icon' style={{ color: showDropDown ? 'var(--orange)' : undefined }} />
               </button>

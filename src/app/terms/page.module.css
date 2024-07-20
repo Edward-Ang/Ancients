@@ -33,8 +33,20 @@
     text-decoration: underline;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .container {
         width: 90%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 899px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1152px) {
+    .container {
+        width: 860px;
     }
 }
