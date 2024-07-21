@@ -9,23 +9,22 @@ const Main = dynamic(() => import('@/components/main/main'), {
   loading: () => <Loading />
 });
 
-async function getData() {
-  const apiKey = process.env.NEWS_API_KEY;
-  try {
-    const response = await fetch(`https://api.currentsapi.services/v1/latest-news?language=en&apiKey=${apiKey}`, {
-      next: { revalidate: 86400 } // Optional: for caching and revalidation in 24 hrs
-    });
+const apiKey = process.env.NEWS_API_KEY;
+const apiUrl = `https://api.currentsapi.services/v1/latest-news?language=en&apiKey=${apiKey}`;
 
+async function getData() {
+  try {
+    const response = await fetch(apiUrl, {
+      next: { revalidate: 86400 }
+    });
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
-
     const data = await response.json();
     return data;
-
   } catch (error) {
     console.error('Error fetching data:', error);
-    return { articles: [] };
+    return { articles: [] }; // Provide a default empty array in case of errors
   }
 }
 
