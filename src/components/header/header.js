@@ -72,8 +72,8 @@ function HeaderContent() {
         <div className='dropdown-wrapper'>
           <div className="dropdown-container">
             {categories.map((topic, index) => (
-              <Link key={index} // Ensure unique key using topic.id
-                href={`/category?category=${topic.name}`}
+              <Link key={index}
+                href={topic.page ? `/${topic.name}` : `/category?category=${topic.name}`}
                 className="dropdown-card"
                 style={{ color: category === topic.name ? 'var(--orange)' : undefined }}
                 onClick={() => setShowDropdown(!showDropDown)}>

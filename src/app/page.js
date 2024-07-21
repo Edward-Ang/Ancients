@@ -12,7 +12,7 @@ const Main = dynamic(() => import('@/components/main/main'), {
 async function getData() {
   const apiKey = process.env.NEWS_API_KEY;
   try {
-    const response = await fetch(`https://api.currentsapi.services/v1/latest-news?apiKey=${apiKey}`, {
+    const response = await fetch(`https://api.currentsapi.services/v1/latest-news?language=en&apiKey=${apiKey}`, {
       next: { revalidate: 86400 } // Optional: for caching and revalidation in 24 hrs
     });
 

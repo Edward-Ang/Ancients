@@ -1,31 +1,38 @@
 [
     {
         "name": "general",
-        "color": "azure"
+        "color": "azure",
+        "page": true
     },
     {
         "name": "technology",
-        "color": "azure"
+        "color": "azure",
+        "page": true
     },
     {
         "name": "business",
-        "color": "neon"
+        "color": "neon",
+        "page": true
     },
     {
         "name": "entertainment",
-        "color": "neon"
+        "color": "neon",
+        "page": true
     },
     {
         "name": "sports",
-        "color": "malibu"
+        "color": "malibu",
+        "page": true
     },
     {
         "name": "health",
-        "color": "malibu"
+        "color": "malibu",
+        "page": true
     },
     {
         "name": "science",
-        "color": "mojito"
+        "color": "mojito",
+        "page": true
     },
     {
         "name": "world",

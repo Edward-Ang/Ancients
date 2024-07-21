@@ -8,7 +8,8 @@ import './mainMedia.css';
 
 export default function Main({ data }) {
     const articlesToShow = data.news.filter((article) =>
-        article.description !== "mojito" && article.url !== 'https://removed.com' && article.image !== 'None'
+        article.description !== "mojito" && article.url !== 'https://removed.com' &&
+        article.image !== 'None' && article.language === 'en'
     );
 
     return (
