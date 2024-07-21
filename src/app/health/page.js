@@ -7,6 +7,7 @@ import Loading from "./loading";
 
 export const metadata = {
     title: 'Health',
+    description: 'Read about the latest health tips, medical news, and wellness trends.'
   };
 
 const Main = dynamic(() => import('@/components/main/main'), {

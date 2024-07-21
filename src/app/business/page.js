@@ -7,6 +7,7 @@ import Loading from "./loading";
 
 export const metadata = {
     title: 'Business',
+    description: 'Get insights into market trends, economic news, and business developments.'
   };
 
 const Main = dynamic(() => import('@/components/main/main'), {

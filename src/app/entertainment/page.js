@@ -7,6 +7,7 @@ import Loading from "./loading";
 
 export const metadata = {
     title: 'Entertainment',
+    description: 'Catch up on the latest movies, TV shows, celebrity news, and entertainment buzz.'
   };
 
 const Main = dynamic(() => import('@/components/main/main'), {

@@ -7,6 +7,7 @@ import Loading from "./loading";
 
 export const metadata = {
     title: 'Sports',
+    description: 'Find scores, highlights, and updates from your favorite sports and teams.'
   };
 
 const Main = dynamic(() => import('@/components/main/main'), {

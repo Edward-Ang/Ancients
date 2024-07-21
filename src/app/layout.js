@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <meta name="keywords" content="news, latest news, breaking news, ancients, ancients news, politics, technology, entertainment, world news" />
+        <meta name="keywords" content="ancients, ancients news, news, latest news, breaking news, politics, technology, entertainment, world news" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
