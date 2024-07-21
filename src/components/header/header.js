@@ -23,8 +23,8 @@ function HeaderContent() {
     setIsClient(true);
   }, []);
 
-  const navLinks = useMemo(() => categories.slice(0, 7).map(cat => (
-    <li key={cat} className="nav-item">
+  const navLinks = useMemo(() => categories.slice(0, 7).map((cat, index) => (
+    <li key={index} className="nav-item">
       <Link
         href={`/${cat.name}`}
         className='nav-link'
@@ -72,7 +72,7 @@ function HeaderContent() {
         <div className='dropdown-wrapper'>
           <div className="dropdown-container">
             {categories.map((topic, index) => (
-              <Link key={index}
+              <Link key={index} // Ensure unique key using topic.id
                 href={`/category?category=${topic.name}`}
                 className="dropdown-card"
                 style={{ color: category === topic.name ? 'var(--orange)' : undefined }}
