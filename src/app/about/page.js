@@ -4,6 +4,10 @@ import Footer from '@/components/footer/footer';
 import Image from 'next/image';
 import AboutIllustration from '@/assets/images/aboutIllustration.png';
 
+export const metadata = {
+  title: 'About',
+};
+
 export default function About() {
     return (
         <>

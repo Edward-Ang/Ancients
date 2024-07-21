@@ -5,6 +5,10 @@ import getData from "../api";
 import dynamic from "next/dynamic";
 import Loading from "./loading";
 
+export const metadata = {
+    title: 'Health',
+  };
+
 const Main = dynamic(() => import('@/components/main/main'), {
     loading: () => <Loading />
 });
