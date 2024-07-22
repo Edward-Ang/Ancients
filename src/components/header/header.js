@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useState, useMemo } from 'react';
+import { Suspense, useEffect, useState, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useMediaQuery } from 'react-responsive';
@@ -18,6 +18,29 @@ function HeaderContent() {
   const category = searchParams.get('category');
   const mobileMedia = useMediaQuery({ maxWidth: 600 });
   const mediumMedia = useMediaQuery({ minWidth: 601, maxWidth: 899 });
+  const searchRef = useRef(null);
+  const dropdownRef = useRef(null);
+
+  const applyAnimation = (elementRef, show) => {
+    if (show) {
+      elementRef.current.style.opacity = '0';
+      elementRef.current.style.transform = 'translateY(-10px)'; 
+      setTimeout(() => {
+        elementRef.current.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        elementRef.current.style.opacity = '1';
+        elementRef.current.style.transform = 'translateY(0)';
+      }, 10); 
+    } else {
+      elementRef.current.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      elementRef.current.style.opacity = '0';
+      elementRef.current.style.transform = 'translateY(-10px)';
+    }
+  };
+
+  useEffect(() => {
+    applyAnimation(searchRef, showSearch);
+    applyAnimation(dropdownRef, showDropDown);
+  }, [showSearch, showDropDown]);
 
   useEffect(() => {
     setIsClient(true);
@@ -68,22 +91,26 @@ function HeaderContent() {
           </div>
         </div>
       </header>
-      {isClient && showDropDown && (
-        <div className='dropdown-wrapper'>
-          <div className="dropdown-container">
-            {categories.map((topic, index) => (
-              <Link key={index}
-                href={topic.page ? `/${topic.name}` : `/category?category=${topic.name}`}
-                className="dropdown-card"
-                style={{ color: category === topic.name ? 'var(--orange)' : undefined }}
-                onClick={() => setShowDropdown(!showDropDown)}>
-                <span className="dropdown-name">{topic.name.charAt(0).toUpperCase() + topic.name.slice(1)}</span>
-              </Link>
-            ))}
+      <div ref={dropdownRef} style={{ opacity: 0, position: 'fixed', width: '100%', zIndex: 2 }}>
+        {isClient && showDropDown && (
+          <div className='dropdown-wrapper'>
+            <div className="dropdown-container">
+              {categories.map((topic, index) => (
+                <Link key={index}
+                  href={topic.page ? `/${topic.name}` : `/category?category=${topic.name}`}
+                  className="dropdown-card"
+                  style={{ color: category === topic.name ? 'var(--orange)' : undefined }}
+                  onClick={() => setShowDropdown(!showDropDown)}>
+                  <span className="dropdown-name">{topic.name.charAt(0).toUpperCase() + topic.name.slice(1)}</span>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-      {isClient && showSearch && <SearchBar />}
+        )}
+      </div>
+      <div ref={searchRef} style={{ opacity: 0, position: 'fixed', width: '100%', zIndex: 3 }}> 
+        {isClient && showSearch && <SearchBar />}
+      </div>
     </>
   );
 }
