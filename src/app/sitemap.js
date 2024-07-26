@@ -19,7 +19,7 @@ export default function sitemap() {
             priority: 0.7,
         },
         {
-            url: 'https://ancientsnews.com/finance',
+            url: 'https://ancientsnews.com/entertainment',
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.6,
