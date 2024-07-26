@@ -56,6 +56,9 @@ const nextConfig = {
           hostname: '**',
         },
       ],
+      domains: [
+        'shop.uncrate.com'
+      ]
     },
   };
 

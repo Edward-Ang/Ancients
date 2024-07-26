@@ -1,3 +1,4 @@
+//src/app/business/page.js
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import BackToTop from "@/components/BackToTop/backToTop";
