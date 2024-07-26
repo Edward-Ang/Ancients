@@ -29,7 +29,6 @@ export async function generateMetadata({ params }) {
 export default async function CategoryPage({ params }) {
     const { category } = params;
     const newsData = await getData(category);
-    console.log(category);
 
     return (
         <>
