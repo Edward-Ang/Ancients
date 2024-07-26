@@ -2,4 +2,4 @@ User-Agent: *
 Allow: /
 Disallow: /terms/
 
-Sitemap: https://ancientsnews.com/sitemap.xml
+Sitemap: https://www.ancientsnews.com/sitemap.xml

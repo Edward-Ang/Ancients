@@ -55,7 +55,7 @@ export default function Main({ data }) {
                     <div className="topic-container">
                         {category.slice(7).map((topic, index) => (
                             <Link key={index}
-                                href={`/category?category=${topic.name}`}
+                                href={`/${topic.name}`}
                                 className="topic-card"
                                 style={{ background: `var(--${topic.color})` }}>
                                 <span className="topic-name">{topic.name.charAt(0).toUpperCase() + topic.name.slice(1)}</span>

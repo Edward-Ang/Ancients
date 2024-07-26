@@ -1,0 +1,70 @@
+{
+    "general": {
+        "title": "General",
+        "description": "Stay updated with the latest news and important events from around the world."
+    },
+    "technology": {
+        "title": "Technology",
+        "description": "Latest updates on technology trends, gadgets, and innovations."
+    },
+    "business": {
+        "title": "Business",
+        "description": "Get insights into market trends, economic news, and business developments."
+    },
+    "entertainment": {
+        "title": "Entertainment",
+        "description": "Catch up on the latest entertainment news and celebrity gossip."
+    },
+    "sports": {
+        "title": "Sports",
+        "description": "Stay updated with the latest sports news and events."
+    },
+    "health": {
+        "title": "Health",
+        "description": "Latest news on health, wellness, and medical advancements."
+    },
+    "science": {
+        "title": "Science",
+        "description": "Discover the latest findings and research in the field of science."
+    },
+    "world": {
+        "title": "World",
+        "description": "Get news and updates on global events and international affairs."
+    },
+    "regional": {
+        "title": "Regional",
+        "description": "News and updates from different regions and localities."
+    },
+    "politics": {
+        "title": "Politics",
+        "description": "Stay informed on the latest political news and developments."
+    },
+    "finance": {
+        "title": "Finance",
+        "description": "Get the latest updates on financial markets, investments, and economic trends."
+    },
+    "academia": {
+        "title": "Academia",
+        "description": "News and insights from the world of education and academia."
+    },
+    "programming": {
+        "title": "Programming",
+        "description": "Latest trends and news in the world of programming and software development."
+    },
+    "lifestyle": {
+        "title": "Lifestyle",
+        "description": "Updates and tips on fashion, travel, and everyday life."
+    },
+    "food": {
+        "title": "Food",
+        "description": "Discover new recipes, culinary trends, and food news."
+    },
+    "opinion": {
+        "title": "Opinion",
+        "description": "Read opinions and editorials on various topics."
+    },
+    "game": {
+        "title": "Game",
+        "description": "Latest news and updates in the world of gaming."
+    }
+}

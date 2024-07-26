@@ -1,7 +1,4 @@
-//.src/components/search/search.js
-
 'use client';
-
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import './search.css';
@@ -10,9 +7,10 @@ export default function SearchBar() {
     const [query, setQuery] = useState('');
     const router = useRouter();
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault(); // Prevent the default form submission
         if (query.trim()) {
-            router.push(`/search?query=${query}`);
+            router.push(`/search?query=${encodeURIComponent(query)}`);
         }
     };
 
