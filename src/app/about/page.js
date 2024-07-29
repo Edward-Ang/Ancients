@@ -6,7 +6,7 @@ import AboutIllustration from '@/assets/images/aboutIllustration.png';
 
 export const metadata = {
     title: 'About',
-    description: 'Welcome to Ancients News, your go-to destination for the latest and most comprehensive news coverage. Our mission is to provide accurate, insightful, and timely information on a wide range of topics including world events, regional news, finance, academia, programming, lifestyle, food, opinion, and gaming.'
+    description: 'Welcome to Ancients News, your go-to destination for the latest and most comprehensive news coverage. Our mission is to provide accurate, insightful, and timely information on a wide range of topics including world events, regional news, finance, academia, programming, lifestyle, food, opinion, and gaming.',
 };
 
 export default function About() {
