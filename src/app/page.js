@@ -15,7 +15,7 @@ const apiUrl = `https://api.currentsapi.services/v1/latest-news?language=en&apiK
 async function getData() {
   try {
     const response = await fetch(apiUrl, {
-      next: { revalidate: 86400 }
+      next: { revalidate: 3600 }
     });
     if (!response.ok) {
       throw new Error('Failed to fetch data');
