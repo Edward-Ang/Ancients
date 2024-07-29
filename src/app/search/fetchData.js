@@ -18,7 +18,6 @@ const fetchData = async (query) => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('Articles:', data.news);
             return data;
         } else {
             throw new Error(`API responded with status ${response.status}`);

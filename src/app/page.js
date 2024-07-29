@@ -2,6 +2,7 @@
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import BackToTop from "@/components/BackToTop/backToTop";
+import Adsense from "@/components/Adsense/adsense";
 import dynamic from "next/dynamic";
 import Loading from "./loading";
 
@@ -33,6 +34,7 @@ export default async function Home() {
   return (
     <>
       <Header />
+      <Adsense />
       <Main data={newsData} />
       <Footer />
       <BackToTop />
