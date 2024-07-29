@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ImageWithFallback } from "@/app/imgWithFallback";
 import { RocketLaunch } from "@mui/icons-material";
+import dynamic from "next/dynamic";
 import ImageError from '@/assets/images/404.jpg';
 import category from '@/assets/data/categories.json';
-import Adsense from "../Adsense/adsense";
 import './main.css';
 import './mainMedia.css';
+
+const Adsense = dynamic(() => import('@/components/Adsense/adsense'), { ssr: false });
 
 export default function Main({ data }) {
     const articlesToShow = data.news.filter((article) =>
@@ -48,9 +50,9 @@ export default function Main({ data }) {
                 })}
             </div>
             <div className='main-right'>
-{/*                 <div className="ads-container">
+                <div className="ads-container">
                     <Adsense />
-                </div> */}
+                </div>
                 <div className="topic-wrapper">
                     <div className="topic-header">
                         <RocketLaunch className="rocket-icon" />
