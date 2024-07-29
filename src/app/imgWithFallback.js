@@ -13,7 +13,7 @@ export const ImageWithFallback = ({ src, alt, ...props }) => {
             const parsedUrl = new URL(url);
             return parsedUrl.protocol === 'http:';
         } catch {
-            return true;
+            return false;
         }
     };
 
