@@ -154,7 +154,7 @@
 
 @media (min-width: 1153px){
     .main-right {
-        height: 700px;
+        height: 90vh;
         width: 300px;
         padding: 20px 0;
         padding-right: 10px;
