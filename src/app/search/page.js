@@ -25,9 +25,7 @@ function SearchResultsContent() {
         setIsLoading(true);
         setError(null);
         try {
-          const [articlesData] = await Promise.all([
-            fetchData(query),
-          ]);
+          const articlesData = await fetchData(query);
           setNewsData(articlesData);
         } catch (err) {
           setError('Failed to fetch data. Please try again later.');

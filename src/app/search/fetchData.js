@@ -6,6 +6,8 @@ const fetchData = async (query) => {
     // Construct URL parameters
     const params = new URLSearchParams({
         language: 'en',
+        limit: 20,
+        page_size: 20,
         keywords: query,
         apiKey: apiKey
     });
