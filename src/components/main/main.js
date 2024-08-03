@@ -17,7 +17,7 @@ export default function Main({ data }) {
     return (
         <div className="main-wrapper">
             <div className='main-left'>
-                {articlesToShow.map((article, index) => {
+                {data.news.length !== 0 ? (articlesToShow.map((article, index) => {
                     const date = new Date(article.published);
                     const formattedDate = date.toLocaleDateString('en-US', {
                         year: 'numeric',
@@ -46,7 +46,11 @@ export default function Main({ data }) {
                             </div>
                         </Link>
                     );
-                })}
+                })) : (
+                    <div className="no-result">
+                        <p>No result found.</p>
+                    </div>
+                )}
             </div>
             <div className='main-right'>
                 <Link className="ads-container" href='https://iubenda.refr.cc/default/u/edward1211' target="_blank" rel="noopener noreferrer">
