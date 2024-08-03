@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ImageWithFallback } from "@/app/imgWithFallback";
 import { RocketLaunch } from "@mui/icons-material";
 import ImageError from '@/assets/images/404.jpg';
+import Iubenda from '@/assets/images/iubenda.jpg'
 import category from '@/assets/data/categories.json';
 import './main.css';
 import './mainMedia.css';
@@ -47,6 +49,9 @@ export default function Main({ data }) {
                 })}
             </div>
             <div className='main-right'>
+                <Link className="ads-container" href='https://iubenda.refr.cc/default/u/edward1211' target="_blank" rel="noopener noreferrer">
+                    <Image className="iubenda-img" src={Iubenda} width={300} height={300} alt='ads'/>
+                </Link>
                 <div className="topic-wrapper">
                     <div className="topic-header">
                         <RocketLaunch className="rocket-icon" />
@@ -55,7 +60,7 @@ export default function Main({ data }) {
                     <div className="topic-container">
                         {category.slice(7).map((topic, index) => (
                             <Link key={index}
-                                href={`/category?category=${topic.name}`}
+                                href={`/${topic.name}`}
                                 className="topic-card"
                                 style={{ background: `var(--${topic.color})` }}>
                                 <span className="topic-name">{topic.name.charAt(0).toUpperCase() + topic.name.slice(1)}</span>

@@ -10,7 +10,7 @@ export default async function getData(category) {
     try {
         const response = await fetch(`https://api.currentsapi.services/v1/search?category=${category}&apiKey=${apiKey}`, {
             next: {
-                revalidate: 86400
+                revalidate: 3600
             }
         });
 
